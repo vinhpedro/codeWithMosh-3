@@ -13,11 +13,15 @@ namespace CodeWithMosh
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
+            /*
             routes.MapRoute(
                 "MoviesByReleaseDate",
                 "movies/released/{year}/{month}",
                 new { Controller = "Movies", action = "ByReleaseDate"},
                 new { year = @"\d{4}", month = @"\d{2}"});
+            */
 
             routes.MapRoute(
                 name: "Default",
