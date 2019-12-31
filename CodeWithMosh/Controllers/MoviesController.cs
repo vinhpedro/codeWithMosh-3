@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CodeWithMosh.Models;
+using CodeWithMosh.ViewModel;
 
 namespace CodeWithMosh.Controllers
 {
@@ -14,11 +15,20 @@ namespace CodeWithMosh.Controllers
         {
             var movie = new Movie() { Name = "Shrek!" };
 
-            return View(movie);
-            //return Content("Hellow World");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+            var customers = new List<Customer>
+            {
+                new Customer {Name = "Customer 1"},
+                new Customer {Name = "Customer 2"}
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+            
+            return View(viewModel);
+
         }
 
         public ActionResult Edit (int id)
